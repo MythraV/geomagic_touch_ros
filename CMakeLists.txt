@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  touch_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,7 +107,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES geo_touch
-#  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs
+ CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs touch_msgs
 #  DEPENDS system_lib
 )
 
@@ -141,9 +142,9 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/geo_touch_node.cpp)
-add_executable(talker src/touch_state.cpp)
-target_link_libraries(talker QHGLUTWrapper QH HL HLU HDU HD GL GLU glut rt ncurses z stdc++ m ${catkin_LIBRARIES})
-add_dependencies(talker ${catkin_EXPORTED_TARGETS})
+add_executable(geomagic_touch src/touch_state.cpp)
+target_link_libraries(geomagic_touch QHGLUTWrapper QH HL HLU HDU HD GL GLU glut rt ncurses z stdc++ m ${catkin_LIBRARIES})
+add_dependencies(geomagic_touch ${catkin_EXPORTED_TARGETS})
 
 # add_executable(talker src/touch_state.cpp)
 # target_link_libraries(talker ${catkin_LIBRARIES})
